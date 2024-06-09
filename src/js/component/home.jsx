@@ -1,17 +1,20 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 //include images into your bundle
 
 
 //create your first component
 const Home = () => {
+	const[glowingColor, setGlowingColor] = useState("red");
+	
+
 	return (
 	<div className="d-flex flex-column justify-content-center align-items-center">
 		<div className="traffic-top"></div>
-		<div className="container bg-dark p-3 rounded mt-5">
-			<div className="red-light bg-danger p-5 mt-3 rounded-circle"></div>
-			<div className="yellow-light bg-warning p-5 mt-3 rounded-circle"></div>
-			<div className="green-light bg-success p-5 mt-3 rounded-circle"></div>
+		<div className="container bg-dark p-3 rounded">
+			<div onClick={()=> setGlowingColor("red")} className={"light" + ((glowingColor === "red")? " red": " ") + ((glowingColor === "red")? " glow": " ")}></div>
+			<div onClick={()=> setGlowingColor("yellow")} className={"light" + ((glowingColor === "yellow")? " yellow": " ") + ((glowingColor === "yellow")? " glow": " ")}></div>
+			<div onClick={()=> setGlowingColor("green")} className={"light" + ((glowingColor === "green")? " green": " ") + ((glowingColor === "green")? " glow": " ")}></div>
 		</div>
 	</div>
 	);
